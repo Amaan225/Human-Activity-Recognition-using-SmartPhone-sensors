@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Android
+build/
+.gradle/
+local.properties
+
+# OS junk
+.DS_Store
+Thumbs.db

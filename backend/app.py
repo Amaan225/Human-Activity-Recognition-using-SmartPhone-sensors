@@ -14,7 +14,7 @@ MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "har_live_model.pkl")
 model = joblib.load(MODEL_PATH)
 
 class FusionInput(BaseModel):
-    data: List[List[float]]  # (N,6)
+    data: List[List[float]]  
 
 LABEL_MAP = {
     0: "STANDING",
@@ -27,7 +27,7 @@ LABEL_MAP = {
 @app.post("/predict_live")
 def predict_live(data: FusionInput):
     X = extract_fusion_features(data.data)
-    print("DEBUG X shape:", X.shape)  # 👈 ADD
+    print("DEBUG X shape:", X.shape)  
     pred = int(model.predict(X)[0])
     return {"activity": LABEL_MAP[pred]}
 
